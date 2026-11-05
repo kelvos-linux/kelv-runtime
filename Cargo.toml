@@ -1,0 +1,16 @@
+[package]
+name = "user-init"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+kelvos-shared-ring = { path = "../shared-ring" }
+
+[[bin]]
+name = "user_init"
+path = "src/main.rs"
+
+[profile.release]
+panic = "abort"
+lto = true
+codegen-units = 1

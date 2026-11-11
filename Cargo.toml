@@ -4,6 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+kelvos-rs = { path = "../kelvos-rs" }
 kelvos-shared-ring = { path = "../shared-ring" }
 
 [[bin]]

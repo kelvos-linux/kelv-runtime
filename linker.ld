@@ -11,26 +11,28 @@ PHDRS
 
 SECTIONS
 {
-    . = 0x100000000;
+    . = USER_IMAGE_ADDRESS;
     .text :
     {
         KEEP(*(.text._start))
         *(.text .text.* .ltext .ltext.*)
     } :text
-    .rodata ALIGN(4096) :
+    .rodata ALIGN(PAGE_SIZE) :
     {
         *(.rodata .rodata.* .lrodata .lrodata.*)
     } :rodata
-    .data ALIGN(4096) :
+    .data ALIGN(PAGE_SIZE) :
     {
         *(.data .data.* .ldata .ldata.*)
         *(.got .got.*)
     } :data
-    .bss ALIGN(4096) (NOLOAD) :
+    .bss ALIGN(PAGE_SIZE) (NOLOAD) :
     {
         *(COMMON)
         *(.bss .bss.* .lbss .lbss.*)
     } :data
+
+    ASSERT(. <= USER_IMAGE_END, "userspace ELF exceeds the configured image window")
 
     /DISCARD/ :
     {

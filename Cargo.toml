@@ -7,6 +7,9 @@ edition = "2021"
 kelvos-rs = { path = "../kelvos-rs" }
 kelvos-shared-ring = { path = "../shared-ring" }
 
+[build-dependencies]
+kelvos-shared-ring = { path = "../shared-ring" }
+
 [[bin]]
 name = "user_init"
 path = "src/main.rs"

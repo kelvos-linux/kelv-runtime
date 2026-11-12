@@ -12,7 +12,5 @@ rustflags = [
     "-C",
     "code-model=large",
     "-C",
-    "link-arg=-Tlinker.ld",
-    "-C",
     "link-arg=-no-pie",
 ]

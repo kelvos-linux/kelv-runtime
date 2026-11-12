@@ -15,20 +15,21 @@ SECTIONS
     .text :
     {
         KEEP(*(.text._start))
-        *(.text .text.*)
+        *(.text .text.* .ltext .ltext.*)
     } :text
-    .rodata ALIGN(16) :
+    .rodata ALIGN(4096) :
     {
-        *(.rodata .rodata.*)
+        *(.rodata .rodata.* .lrodata .lrodata.*)
     } :rodata
-    .data ALIGN(16) :
+    .data ALIGN(4096) :
     {
-        *(.data .data.*)
+        *(.data .data.* .ldata .ldata.*)
+        *(.got .got.*)
     } :data
-    .bss ALIGN(16) (NOLOAD) :
+    .bss ALIGN(4096) (NOLOAD) :
     {
         *(COMMON)
-        *(.bss .bss.*)
+        *(.bss .bss.* .lbss .lbss.*)
     } :data
 
     /DISCARD/ :

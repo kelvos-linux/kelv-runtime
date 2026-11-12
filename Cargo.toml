@@ -11,6 +11,10 @@ kelvos-shared-ring = { path = "../shared-ring" }
 name = "user_init"
 path = "src/main.rs"
 
+[[bin]]
+name = "user_child"
+path = "src/child.rs"
+
 [profile.release]
 panic = "abort"
 lto = true

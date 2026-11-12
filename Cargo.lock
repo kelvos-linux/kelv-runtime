@@ -3,6 +3,18 @@
 version = 4
 
 [[package]]
+name = "kelvos-rs"
+version = "0.1.0"
+dependencies = [
+ "kelvos-rs-macros",
+ "kelvos-shared-ring",
+]
+
+[[package]]
+name = "kelvos-rs-macros"
+version = "0.1.0"
+
+[[package]]
 name = "kelvos-shared-ring"
 version = "0.1.0"
 
@@ -10,5 +22,6 @@ version = "0.1.0"
 name = "user-init"
 version = "0.1.0"
 dependencies = [
+ "kelvos-rs",
  "kelvos-shared-ring",
 ]

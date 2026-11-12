@@ -5,14 +5,12 @@ use kelvos_rs::prelude::*;
 
 #[kelvos_rs::entry]
 fn main() -> ! {
-    if task::spawn().is_err() {
-        task::idle_forever();
-    }
-
+    let child = task::spawn().expect("launch child");
+    assert_eq!(task::wait_child(child), Ok(task::ExitStatus::Exited(42)));
     task::idle_forever()
 }
 
 #[panic_handler]
 fn panic(_info: &core::panic::PanicInfo) -> ! {
-    task::idle_forever()
+    task::exit_with(1)
 }
